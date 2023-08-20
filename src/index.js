@@ -109,6 +109,8 @@ window.addEventListener("load", function () {
   document.getElementById("img-gen").addEventListener("submit", imgGenHandleForm);
 });
 
+
+
 //UI for plant-img-service
 
 function plantImgInfo(response) {
@@ -119,6 +121,7 @@ function plantImgInfo(response) {
     container.innerHTML += `<img src="${image.url.s}">`
   });
   document.getElementById("img-gen-plant-name").innerText += ` ${response.results[0].species.scientificNameWithoutAuthor}`;
+  // document.getElementById("img-gen").removeAttribute("class");
 }
 
 
