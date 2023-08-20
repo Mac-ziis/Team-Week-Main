@@ -20,7 +20,7 @@ function getPlant(plantName) {
 
 function getDisease(diseaseName) {
   PlantService.getDisease(diseaseName)
-    .then(function(response) {
+    .then(function (response) {
       if (response.data) {
         diseaseInfo(response, diseaseName);
       } else {
@@ -63,6 +63,11 @@ function plantInfo(response, plantName) {
   });
 }
 
+function diseaseInfo(response, diseaseName) {
+  console.log(response);
+  document.getElementById("result-area").innerText = `Here's a little about ${diseaseName}: ${response[0].id[1].description}`;
+}
+
 function printError(error) {
   document.getElementById("result-area").innerText = `There was an error accessing data: ${error}`;
 }
@@ -76,13 +81,17 @@ function handleForm(event) {
 
 function handleDiseaseForm(event) {
   event.preventDefault();
-  const disName = document.getElementById("disease-name").value;
+  const diseaseName = document.getElementById("disease-name").value;
   document.getElementById("disease-name").value = null;
   getDisease(diseaseName);
 }
 
 window.addEventListener("load", function () {
-  document.getElementById("textForm").addEventListener("submit", handleForm);
+  document.getElementById("disease-name").addEventListener("search-disease-btn", handleDiseaseForm);
+});
+
+window.addEventListener("load", function () {
+  document.getElementById("textForm").addEventListener("search-plant-btn", handleForm);
 });
 
 //UI for plant-img-service
@@ -106,7 +115,7 @@ window.addEventListener("load", function () {
 // UI logic for seed-catalog
 
 document.addEventListener("DOMContentLoaded", function () {
-  
+
   function calculateTax(cost) {
     const taxRate = 0.18;
     return cost * taxRate;
@@ -169,15 +178,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function getWeather(city) {
   let promise = WeatherService.getWeather(city);
-  promise.then(function(weatherDataArray) {
+  promise.then(function (weatherDataArray) {
     weatherElements(weatherDataArray);
-  }, function(errorArray) {
+  }, function (errorArray) {
     weatherError(errorArray);
   });
 }
 
 function weatherElements(data) {
-  document.getElementById('result-area').innerText = `it's ${Math.round(1.8 *(data[0].main.temp - 273.15) + 32)} degrees, ${data[0].main.humidity}% humid.
+  document.getElementById('result-area').innerText = `it's ${Math.round(1.8 * (data[0].main.temp - 273.15) + 32)} degrees, ${data[0].main.humidity}% humid.
   The weather in ${data[1]} is ${data[0].weather[0].description}.`;
 }
 
@@ -193,6 +202,6 @@ function weatherFormSubmission(event) {
 }
 
 const weatherLocation = document.getElementById('location-btn');
-  weatherLocation.addEventListener('click', (event) => {
+weatherLocation.addEventListener('click', (event) => {
   weatherFormSubmission(event);
 });
