@@ -8,8 +8,15 @@
 
 <body>
   <div class="container">
-    <h1 class="titlecard">PLANT FREAK</h1>
+    <h1 class="titlecard"><span>&#127793;</span> PLANT FREAK</h1>
     <div id="result-area">
+      <div id="img-gen" class="hidden">
+        <form>
+          <label>Get Info On:</label>
+          <button type="submit" id="img-gen-plant-name"></button>
+        </form>
+      </div>
+      <div id="problem-area"></div>
       <form id="order-form" class="hidden"> <!-- shopping html & display area -->
         <fieldset>
           <legend>Select Plant Types:</legend>
@@ -54,7 +61,7 @@
       <h2 id="leafTitle">Plant Name</h2> <!-- plant finder html -->
       <form id="textForm">
         <input type="text" id="plant-name" placeholder="Enter Plant Name">
-        <button type="submit" id="search-plant--btn">Search</button>
+        <button type="submit" id="search-plant--btn">Search Plant</button>
       </form>
     </div>
     <div class="leaf2"> <!-- image finder html -->
@@ -65,21 +72,20 @@
       </form> 
     </div>
     <div class="leaf"> <!-- disease finder html -->
-      <h2 id="leafTitle">plant probs</h2>
+      <h2 id="leafTitle">Plant Probs?</h2>
       <form id="diseaseForm">
       <input type="text" class="search-field" id="disease-name" placeholder="Enter Disease Name" />
-      <button type="submit" id="search-disease-btn">Search</button>
+      <button type="submit" id="search-disease-btn">Search Disease</button>
       </form>
     </div>
     <div class="leaf2"> <!-- weather html -->
-      <h2 id="autoWeather">weather</h2>
+      <h2 id="autoWeather">Weather</h2>
     </div>
     <div class="leaf">
       <button id="shopping-btn">
-        <h1>shopping</h1>
+        <h1>Shopping</h1>
       </button>
     </div>
   </div>
 </body>
-
 </html>

@@ -5,14 +5,14 @@ body {
 }
 
 .titlecard {
-  margin-left: 50%;
-  font-size: 70px;
+  margin-left: 25%;
+  font-size: 90px;
   color: darkgreen;
   /* -webkit-text-stroke: 8px darkgreen; */
 }
 
 .container {
-  margin-top: 0%;
+  margin-bottom: 10%;
   justify-content: flex-start;
   align-items: center;
   position: relative; 
@@ -24,12 +24,25 @@ body {
   color: black;
 }
 
-img {
+#result-area img {
   border: 3px solid black;
-  border-radius: 5px;
+  border-radius: 15px;
+  width: 25%;
+  margin: 10px;
+  box-shadow: rgba(10, 10, 10, 0.35) 10px 15px 15px;
 }
 
-.search-field, #search-btn, #place-order-btn, #location-btn, #plant-name, #image-input, #disease-name, #search-plant--btn, #submit-button, #search-disease-btn {
+#problem-area {
+  text-align: center;
+  padding: 20%;
+}
+
+#result-area {
+  font-size: 20px;
+  padding-top: 20px;
+}
+
+.search-field, #search-btn, #place-order-btn, #location-btn, #plant-name, #image-input, #disease-name, #search-plant--btn, #submit-button, #search-disease-btn, #img-gen-plant-name {
   color: black;
   border-radius: 3px;
   border: 2px solid black;
@@ -62,7 +75,7 @@ input[type="text"]::placeholder {
   color: green;
 }
 
-.search-field:hover, #search-btn:hover, #place-order-btn:hover, #location-btn:hover, #search-plant--btn:hover, #submit-button:hover, #search-disease-btn:hover {
+.search-field:hover, #search-btn:hover, #place-order-btn:hover, #location-btn:hover, #search-plant--btn:hover, #submit-button:hover, #search-disease-btn:hover, #img-gen-plant-name:hover {
   background-color: green;
   transition: all 0.2s ease;
 }
@@ -73,7 +86,7 @@ input[type="text"]::placeholder {
 }
 
 .leaf {
-  margin-left: 15%;
+  margin-left: 10%;
   width: 250px;
   height: 150px;
   background-color: green;
@@ -88,7 +101,6 @@ input[type="text"]::placeholder {
 }
 
 .leaf2 {
-  margin-left: 5%;
   width: 250px;
   height: 150px;
   background-color: green;
@@ -127,7 +139,7 @@ input[type='number']{
 #result-area {
   float: right;
   margin-right: 5%;
-  width: 55%;
+  width: 65%;
   height: 80%;
   background-color: green;
   border: 3px solid green;
@@ -135,7 +147,7 @@ input[type='number']{
   border-color: green green darkgreen darkgreen;
   border-radius: 80px 0 80px 0;
   position: relative;
-  overflow: hidden;
+  overflow: scroll;
   box-shadow: rgba(10, 10, 10, 0.35) 10px 15px 15px;
 }
 

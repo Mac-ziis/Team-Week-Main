@@ -1,5 +1,5 @@
-import 'bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import Plant from './js/seed-catalog.js';
 import WeatherService from './js/weather-service';
@@ -93,6 +93,22 @@ window.addEventListener("load", function () {
   document.getElementById("textForm").addEventListener("submit", handleForm);
 });
 
+//Form Handling for Image-Generated Plantinfo
+
+function imgGenHandleForm(event) {
+  event.preventDefault();
+  const plantName = document.getElementById("img-gen-plant-name").innerText;
+  getPlant(plantName);
+}
+
+// function showImgGenForm() {
+//   document.getElementById("img-gen").removeAttribute("class", "hidden");
+// }
+
+window.addEventListener("load", function () {
+  document.getElementById("img-gen").addEventListener("submit", imgGenHandleForm);
+});
+
 //UI for plant-img-service
 
 function plantImgInfo(response) {
@@ -102,7 +118,9 @@ function plantImgInfo(response) {
   response.results[0].images.forEach((image) => {
     container.innerHTML += `<img src="${image.url.s}">`
   });
+  document.getElementById("img-gen-plant-name").innerText += ` ${response.results[0].species.scientificNameWithoutAuthor}`;
 }
+
 
 function handleImageForm(event) {
   event.preventDefault();
@@ -189,7 +207,7 @@ function getWeather(city) {
 }
 
 function weatherElements(data) {
-  document.getElementById('autoWeather').innerHTML = `weather: \n${Math.round(1.8 *(data[0].main.temp - 273.15) + 32)}\u00B0 ${data[0].main.humidity}% 
+  document.getElementById('autoWeather').innerHTML = `Weather: \n${Math.round(1.8 *(data[0].main.temp - 273.15) + 32)}\u00B0F </br> ${data[0].main.humidity}% Humidity 
   <img src="https://openweathermap.org/img/wn/${data[0].weather[0].icon}@2x.png">`;
 }
 
