@@ -64,8 +64,7 @@ function plantInfo(response, plantName) {
 }
 
 function diseaseInfo(response, diseaseName) {
-  console.log(`${response[0].id[1].description[0].description}`);
-  document.getElementById("result-area").innerText = `Here's a little about ${diseaseName}: ${response[0].id[1].description[0].description}`;
+  document.getElementById("result-area").innerText = `Here's a little about ${diseaseName}: ${response.data[0].description[0].description}`;
 }
 
 function printError(error) {
