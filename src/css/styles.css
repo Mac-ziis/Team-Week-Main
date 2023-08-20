@@ -18,11 +18,22 @@ body {
   position: relative; 
 }
 
-.search-field, #search-btn, #place-order-btn, #location-btn {
+#leafTitle, #autoWeather {
+  font-size: x-large;
+  margin: 10px;
+  color: black;
+}
+
+img {
+  border: 3px solid black;
+  border-radius: 5px;
+}
+
+.search-field, #search-btn, #place-order-btn, #location-btn, #plant-name, #image-input, #disease-name, #search-plant--btn, #submit-button, #search-disease-btn {
   color: black;
   border-radius: 3px;
   border: 2px solid black;
-  margin: 10px;
+  margin: 5px;
   background-color: darkgreen;
   display: inline-block;
   padding: 0px 2px;
@@ -51,13 +62,14 @@ input[type="text"]::placeholder {
   color: green;
 }
 
-.search-field:hover, #search-btn:hover, #place-order-btn:hover, #location-btn:hover {
+.search-field:hover, #search-btn:hover, #place-order-btn:hover, #location-btn:hover, #search-plant--btn:hover, #submit-button:hover, #search-disease-btn:hover {
   background-color: green;
   transition: all 0.2s ease;
 }
 
-.search-field:focus {
+.search-field:focus, #plant-name:focus, #image-input:focus, #disease-name:focus {
   background-color: green;
+  transition: all 0.2s ease;
 }
 
 .leaf {
@@ -108,7 +120,6 @@ input[type='number']{
   width: 80px;
 } 
 
-
 .hidden {
   display: none;
 }
@@ -116,7 +127,7 @@ input[type='number']{
 #result-area {
   float: right;
   margin-right: 5%;
-  width: 50%;
+  width: 55%;
   height: 80%;
   background-color: green;
   border: 3px solid green;

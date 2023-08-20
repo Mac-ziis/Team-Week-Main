@@ -97,7 +97,11 @@ window.addEventListener("load", function () {
 
 function plantImgInfo(response) {
   const container = document.getElementById("result-area");
-  container.innerHTML = `This plant might be: ${response.bestMatch}`;
+  container.innerHTML = `This plant might be: ${response.results[0].species.scientificNameWithoutAuthor}
+  </br>`;
+  response.results[0].images.forEach((image) => {
+    container.innerHTML += `<img src="${image.url.s}">`
+  });
 }
 
 function handleImageForm(event) {
@@ -185,8 +189,8 @@ function getWeather(city) {
 }
 
 function weatherElements(data) {
-  document.getElementById('autoWeather').innerText = `weather: \n${Math.round(1.8 *(data[0].main.temp - 273.15) + 32)}\u00B0 ${data[0].main.humidity}% 
-  ${data[0].weather[0].description}`;
+  document.getElementById('autoWeather').innerHTML = `weather: \n${Math.round(1.8 *(data[0].main.temp - 273.15) + 32)}\u00B0 ${data[0].main.humidity}% 
+  <img src="https://openweathermap.org/img/wn/${data[0].weather[0].icon}@2x.png">`;
 }
 
 function weatherError(error) {
