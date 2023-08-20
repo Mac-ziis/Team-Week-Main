@@ -177,30 +177,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function getWeather(city) {
   let promise = WeatherService.getWeather(city);
-  promise.then(function (weatherDataArray) {
+  promise.then(function(weatherDataArray) {
     weatherElements(weatherDataArray);
-  }, function (errorArray) {
+  }, function(errorArray) {
     weatherError(errorArray);
   });
 }
 
 function weatherElements(data) {
-  document.getElementById('result-area').innerText = `it's ${Math.round(1.8 * (data[0].main.temp - 273.15) + 32)} degrees, ${data[0].main.humidity}% humid.
-  The weather in ${data[1]} is ${data[0].weather[0].description}.`;
+  document.getElementById('autoWeather').innerText = `weather: \n${Math.round(1.8 *(data[0].main.temp - 273.15) + 32)}\u00B0 ${data[0].main.humidity}% 
+  ${data[0].weather[0].description}`;
 }
 
 function weatherError(error) {
-  document.getElementById('result-area').innerText = `There was an error accessing the weather data for ${error[2]}: ${error[0].status} ${error[0].statusText}: ${error[1].message}`;
+  document.getElementById('autoWeather').innerText = `There was an error accessing the weather data for ${error[2]}: ${error[0].status} ${error[0].statusText}: ${error[1].message}`;
 }
 
 function weatherFormSubmission(event) {
   event.preventDefault();
-  const city = document.getElementById("location").value;
-  document.getElementById("location").value = null;
-  getWeather(city);
+  getWeather();
 }
 
-const weatherLocation = document.getElementById('location-btn');
-weatherLocation.addEventListener('click', (event) => {
+window.addEventListener("load", function() {  
   weatherFormSubmission(event);
 });

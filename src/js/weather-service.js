@@ -1,19 +1,27 @@
 export default class WeatherService {  
-    static getWeather(city) {
+    static getWeather() {
       return new Promise(function(resolve, reject) {
-        let request = new XMLHttpRequest();
-        const API_KEY_2 = process.env.API_KEY_2;
-        const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY_2}`;
-        request.addEventListener("loadend", function() {
-          const response = JSON.parse(this.responseText);
-          if (this.status === 200) {
-            resolve([response, city]);
-          } else {
-            reject([this, response, city]);
-          }
-        });
-        request.open("GET", url, true);
-        request.send();
+       
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition((position) => {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+            const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=bd9f598b5f654c407cc0f903fa3ad97a`;
+            let request = new XMLHttpRequest();
+            request.addEventListener("loadend", function() {
+              const response = JSON.parse(this.responseText);
+              if (this.status === 200) {
+                resolve([response]);
+              } else {
+                reject([this, response]);
+              }
+            });
+            request.open("GET", url, true);
+            request.send();    
+          });
+        } else {
+          reject("Geolocation not supported.")
+        }
       });
     }
   }
