@@ -64,8 +64,8 @@ function plantInfo(response, plantName) {
 }
 
 function diseaseInfo(response, diseaseName) {
-  console.log(response);
-  document.getElementById("result-area").innerText = `Here's a little about ${diseaseName}: ${response[0].id[1].description}`;
+  console.log(`${response[0].id[1].description[0].description}`);
+  document.getElementById("result-area").innerText = `Here's a little about ${diseaseName}: ${response[0].id[1].description[0].description}`;
 }
 
 function printError(error) {
@@ -87,11 +87,11 @@ function handleDiseaseForm(event) {
 }
 
 window.addEventListener("load", function () {
-  document.getElementById("disease-name").addEventListener("search-disease-btn", handleDiseaseForm);
+  document.getElementById("diseaseForm").addEventListener("submit", handleDiseaseForm);
 });
 
 window.addEventListener("load", function () {
-  document.getElementById("textForm").addEventListener("search-plant-btn", handleForm);
+  document.getElementById("textForm").addEventListener("submit", handleForm);
 });
 
 //UI for plant-img-service
