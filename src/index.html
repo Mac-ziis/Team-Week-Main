@@ -10,12 +10,17 @@
   <div class="container">
     <h1 class="titlecard"><span>&#127793;</span> PLANT FREAK</h1>
     <div id="result-area">
-      <!-- <div id="img-gen">
-        <form>
-          <label>Get Info On:</label>
-          <button type="submit" id="img-gen-plant-name"></button>
-        </form>
-      </div> -->
+      <div id="about" class="hidden">
+        <p><a href="https://github.com/WillJolley">Will Jolley </a></p>
+        <p>Kari Vigna<a href="https://github.com/KariVigna"><img
+              src="https://avatars.githubusercontent.com/u/134247534?v=4"></a></p>
+        <p>Joseph Murray<a href="https://github.com/asparageist"><img
+              src="https://avatars.githubusercontent.com/u/70991796?v=4"></a></p>
+        <p>Greg Stillwell<a href="https://github.com/GregStillwell"></a><img
+            src="https://avatars.githubusercontent.com/u/126844580?v=4"></p>
+        <p>Mac Granger<a href="https://github.com/Mac-ziis"><img
+              src="https://avatars.githubusercontent.com/u/124395374?v=4"></a></p>
+      </div>
       <div id="problem-area"></div>
       <form id="order-form" class="hidden"> <!-- shopping html & display area -->
         <fieldset>
@@ -65,17 +70,17 @@
       </form>
     </div>
     <div class="leaf2"> <!-- image finder html -->
-      <h4 id="leafTitle">Plant Image URL:</h4>
+      <h2 id="leafTitle">Plant Image URL:</h2>
       <form id="imageForm">
-      <input type="text" id="image-input" placeholder="Enter Plant Image URL">
-      <button type="submit" id="submit-button">Identify Plant</button>
-      </form> 
+        <input type="text" id="image-input" placeholder="Enter Plant Image URL">
+        <button type="submit" id="submit-button">Identify Plant</button>
+      </form>
     </div>
     <div class="leaf"> <!-- disease finder html -->
       <h2 id="leafTitle">Plant Probs?</h2>
       <form id="diseaseForm">
-      <input type="text" class="search-field" id="disease-name" placeholder="Enter Disease Name" />
-      <button type="submit" id="search-disease-btn">Search Disease</button>
+        <input type="text" class="search-field" id="disease-name" placeholder="Enter Disease Name" />
+        <button type="submit" id="search-disease-btn">Search Disease</button>
       </form>
     </div>
     <div class="leaf2"> <!-- weather html -->
@@ -86,6 +91,20 @@
         <h1>Shopping</h1>
       </button>
     </div>
+    <div class="leaf2">
+      <form id="about-us">
+        <button id="about-btn">
+          <h1>About Us</h1>
+        </button>
+      </form>
+    </div>
+  </div>
+  <div class="img-float">
+    <form id="img-gen" class="hidden">
+      <label>Get Info On:</label>
+      <button type="submit" id="img-gen-plant-name"></button>
+    </form>
   </div>
 </body>
+
 </html>

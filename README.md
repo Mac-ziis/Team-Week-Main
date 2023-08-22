@@ -1,15 +1,21 @@
-# _{Application Name}_
+# _Title_
 
-#### By _**{List of contributors}**_
+#### By _**Joseph Murray, Kari Vigna, Mac Granger, Greg Stilwell, Will Jolley**_
 
 #### _{Brief description of application}_
 
 ## Technologies Used
 
-* _List all_
-* _the major technologies_
-* _you used in your project_
-* _here_
+* _JavaScript_
+* _HTML_
+* _CSS_
+* _Node.js_
+* _Webpack_
+* _NPM_
+* _Babel_
+* _ESLint_
+* _JSON_ 
+* _DotEnv_
 
 ## Description
 
@@ -17,13 +23,27 @@ _{This is a detailed description of your application. Give as much detail as nee
 
 ## Setup/Installation Requirements
 
-* _This is a great place_
-* _to list setup instructions_
-* _in a simple_
-* _easy-to-understand_
-* _format_
-
-_{Leave nothing to chance! You want it to be easy for potential users, employers and collaborators to run your app. Do I need to run a server? How should I set up my databases? Is there other code this application depends on? We recommend deleting the project from your desktop, re-cloning the project from GitHub, and writing down all the steps necessary to get the project working again.}_
+* Have VS Code installed
+* Clone this repository to your desktop.
+* Open the repository in VS Code.
+* Navigate to the .gitignore file and enter .env on a new line.
+* Navigate to the root directory and run the following commands in your terminal:
+  * To create a .env file to store your API key: touch .env
+  * To install dotenv plugin: npm install dotenv-webpack@2.0.0 --save-dev
+* Navigate to webpack.config.js 
+  * Add the following on line 5: const Dotenv = require('dotenv-webpack');
+  * Add the following to the plugins array: new Dotenv();
+    * Make sure to add a comma at the end of the previous plugin.
+* Generate API keys by creating accounts at:
+  * https://my.plantnet.org/
+  * https://perenual.com/login
+  * https://openweathermap.org/
+* Insert your API keys in the .env file using the following syntax: 
+* API_Key=(Your Key Here) - without the parentheses. 
+* From the root directory, run the following commands in your terminal:
+  * to install dependencies: npm install
+  * to run the application: npm run build
+  * to open the application in a browser window: npm start
 
 ## Known Bugs
 

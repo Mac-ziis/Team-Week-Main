@@ -1,5 +1,5 @@
-// import 'bootstrap';
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import Plant from './js/seed-catalog.js';
 import WeatherService from './js/weather-service';
@@ -46,13 +46,12 @@ function getPlantByImage(plantImage) {
 function plantInfo(response, plantName) {
   const container = document.getElementById("result-area");
   response.data.forEach((entry) => {
-    container.innerHTML += `Results for "${plantName}":
+    container.innerHTML += `</br>
+    Results for "${plantName}":
     </br>
     Common name: "${entry.common_name}"
     </br>
     Scientific name: "${entry.scientific_name}"
-    </br>
-    Other Names: "${entry.other_name}
     </br>
     <img src="${entry.default_image.small_url}">
     Cycle: ${entry.cycle}
@@ -64,7 +63,7 @@ function plantInfo(response, plantName) {
 }
 
 function diseaseInfo(response, diseaseName) {
-  document.getElementById("result-area").innerText = `Here's a little about ${diseaseName}: ${response.data[0].description[0].description}`;
+  document.getElementById("problem-area").innerText = `Here's a little about ${diseaseName}: ${response.data[0].description[0].description}`;
 }
 
 function printError(error) {
@@ -85,31 +84,33 @@ function handleDiseaseForm(event) {
   getDisease(diseaseName);
 }
 
-window.addEventListener("load", function () {
-  document.getElementById("diseaseForm").addEventListener("submit", handleDiseaseForm);
-});
+//window.addEventListener("load", function () {
+  //document.getElementById("diseaseForm").addEventListener("submit", handleDiseaseForm);
+//});
 
-window.addEventListener("load", function () {
-  document.getElementById("textForm").addEventListener("submit", handleForm);
-});
+//window.addEventListener("load", function () {
+  //document.getElementById("textForm").addEventListener("submit", handleForm);
+//});
 
 //Form Handling for Image-Generated Plantinfo
 
 function imgGenHandleForm(event) {
   event.preventDefault();
+  document.getElementById("img-gen").setAttribute("class", "hidden");
   const plantName = document.getElementById("img-gen-plant-name").innerText;
   getPlant(plantName);
 }
 
-// function showImgGenForm() {
-//   document.getElementById("img-gen").removeAttribute("class", "hidden");
-// }
+// About Us 
 
-window.addEventListener("load", function () {
-  document.getElementById("img-gen").addEventListener("submit", imgGenHandleForm);
-});
+function aboutUsHandleForm(event) {
+  event.preventDefault();
+  document.getElementById("about").removeAttribute("class");
+}
 
-
+//window.addEventListener("load", function () {
+  //document.getElementById("img-gen").addEventListener("submit", imgGenHandleForm);
+//});
 
 //UI for plant-img-service
 
@@ -121,7 +122,7 @@ function plantImgInfo(response) {
     container.innerHTML += `<img src="${image.url.s}">`
   });
   document.getElementById("img-gen-plant-name").innerText += ` ${response.results[0].species.scientificNameWithoutAuthor}`;
-  // document.getElementById("img-gen").removeAttribute("class");
+  document.getElementById("img-gen").removeAttribute("class");
 }
 
 
@@ -133,7 +134,11 @@ function handleImageForm(event) {
 }
 
 window.addEventListener("load", function () {
+  document.getElementById("textForm").addEventListener("submit", handleForm);
   document.getElementById("imageForm").addEventListener("submit", handleImageForm);
+  document.getElementById("img-gen").addEventListener("submit", imgGenHandleForm);
+  document.getElementById("diseaseForm").addEventListener("submit", handleDiseaseForm);
+  document.getElementById("about-us").addEventListener("submit", aboutUsHandleForm);
 });
 
 // UI logic for seed-catalog
@@ -210,7 +215,7 @@ function getWeather(city) {
 }
 
 function weatherElements(data) {
-  document.getElementById('autoWeather').innerHTML = `Weather: \n${Math.round(1.8 *(data[0].main.temp - 273.15) + 32)}\u00B0F </br> ${data[0].main.humidity}% Humidity 
+  document.getElementById('autoWeather').innerHTML = `Weather: ${Math.round(1.8 *(data[0].main.temp - 273.15) + 32)}\u00B0F </br> ${data[0].main.humidity}% Humidity</br> ${data[0].weather[0].description}
   <img src="https://openweathermap.org/img/wn/${data[0].weather[0].icon}@2x.png">`;
 }
 
