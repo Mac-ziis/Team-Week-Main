@@ -10,21 +10,17 @@ body {
   color: darkgreen;
   -webkit-text-stroke: 3px black;
   text-shadow: rgba(10, 10, 10, 0.5) 5px 5px 10px;
-
-}
-
-.titlecard h1 {
-  text-shadow: rgba(10, 10, 10, 0.35) 10px 15px 15px;
 }
 
 .container {
   margin-bottom: 10%;
   justify-content: flex-start;
   align-items: center;
-  position: relative; 
+  position: relative;
 }
 
-#leafTitle, #autoWeather {
+#leafTitle,
+#autoWeather {
   font-size: x-large;
   margin: 10px;
   color: black;
@@ -51,13 +47,17 @@ body {
   width: 80%;
 }
 
-#result-area {
-  font-size: 20px;
-  padding-top: 20px;
-  z-index: 0;
-}
-
-.search-field, #search-btn, #place-order-btn, #location-btn, #plant-name, #image-input, #disease-name, #search-plant--btn, #submit-button, #search-disease-btn, #img-gen-plant-name {
+.search-field,
+#search-btn,
+#place-order-btn,
+#location-btn,
+#plant-name,
+#image-input,
+#disease-name,
+#search-plant--btn,
+#submit-button,
+#search-disease-btn,
+#img-gen-plant-name {
   color: black;
   border-radius: 3px;
   border: 2px solid black;
@@ -68,7 +68,8 @@ body {
   place-items: center;
 }
 
-#shopping-btn, #about-btn {
+#shopping-btn,
+#about-btn {
   color: black;
   border-radius: 3px;
   border: 2px solid green;
@@ -79,7 +80,8 @@ body {
   place-items: center;
 }
 
-#shopping-btn:hover, #about-btn:hover {
+#shopping-btn:hover,
+#about-btn:hover {
   color: darkgreen;
   border: 2px solid darkgreen;
   border-radius: 5px solid darkgreen;
@@ -91,12 +93,22 @@ input[type="text"]::placeholder {
   color: green;
 }
 
-.search-field:hover, #search-btn:hover, #place-order-btn:hover, #location-btn:hover, #search-plant--btn:hover, #submit-button:hover, #search-disease-btn:hover, #img-gen-plant-name:hover {
+.search-field:hover,
+#search-btn:hover,
+#place-order-btn:hover,
+#location-btn:hover,
+#search-plant--btn:hover,
+#submit-button:hover,
+#search-disease-btn:hover,
+#img-gen-plant-name:hover {
   background-color: green;
   transition: all 0.2s ease;
 }
 
-.search-field:focus, #plant-name:focus, #image-input:focus, #disease-name:focus {
+.search-field:focus,
+#plant-name:focus,
+#image-input:focus,
+#disease-name:focus {
   background-color: green;
   transition: all 0.2s ease;
 }
@@ -131,24 +143,26 @@ input[type="text"]::placeholder {
 }
 
 .leaf2:hover {
-transform: rotate(20deg);
-transition: all 0.4s ease;
+  transform: rotate(20deg);
+  transition: all 0.4s ease;
 }
 
 .leaf:hover {
-transform: rotate(-20deg);
-transition: all 0.4s ease;
+  transform: rotate(-20deg);
+  transition: all 0.4s ease;
 }
 
-.leaf, .leaf2 h2 {
-  padding: 15px;
+.leaf h2,
+.leaf2 h2 {
+  padding-top: 15px;
 }
 
 #autoWeather {
   font-size: large;
 }
 
-#about-btn {
+#about-btn,
+#shopping-btn {
   padding-top: 15px;
 }
 
@@ -156,15 +170,17 @@ transition: all 0.4s ease;
   margin-top: 5%;
 }
 
-input[type='number']{
+input[type='number'] {
   width: 80px;
-} 
+}
 
 .hidden {
   display: none;
 }
 
 #result-area {
+  font-size: 20px;
+  padding-top: 20px;
   color: black;
   float: right;
   margin-right: 0%;

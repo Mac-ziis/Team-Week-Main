@@ -1,6 +1,6 @@
 # _Title_
 
-#### By _**Joseph Murray, Kari Vigna, Mac Granger, Greg Stilwell, Will Jolley**_
+#### By _**Joseph Murray, Kari Vigna, Mac Granger, Greg Stillwell, Will Jolley**_
 
 #### _{Brief description of application}_
 
@@ -35,9 +35,10 @@ _{This is a detailed description of your application. Give as much detail as nee
   * Add the following to the plugins array: new Dotenv();
     * Make sure to add a comma at the end of the previous plugin.
 * Generate API keys by creating accounts at:
-  * https://my.plantnet.org/
   * https://perenual.com/login
   * https://openweathermap.org/
+  * https://my.plantnet.org/
+    * For this key to work on a live server, you'll have to click "expose my API key" at https://my.plantnet.org/account/settings, and list your server domain in the "Authorized domains" box (e.g. http://localhost:8080)
 * Insert your API keys in the .env file using the following syntax: 
 * API_Key=(Your Key Here) - without the parentheses. 
 * From the root directory, run the following commands in your terminal:
@@ -52,7 +53,7 @@ _{This is a detailed description of your application. Give as much detail as nee
 
 ## License
 
-Copyright (c) _date_ _author name(s)_
+Copyright (c) _2023_ _Joseph Murray, Kari Vigna, Mac Granger, Greg Stillwell, Will Jolley_
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

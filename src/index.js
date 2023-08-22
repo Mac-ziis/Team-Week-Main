@@ -44,6 +44,8 @@ function getPlantByImage(plantImage) {
 // UI logic for plant-finder
 
 function plantInfo(response, plantName) {
+  document.getElementById('result-area').innerHTML ="";
+  document.getElementById("img-gen").setAttribute("class", "hidden");
   const container = document.getElementById("result-area");
   response.data.forEach((entry) => {
     container.innerHTML += `</br>
@@ -63,6 +65,7 @@ function plantInfo(response, plantName) {
 }
 
 function diseaseInfo(response, diseaseName) {
+  document.getElementById('result-area').innerHTML ="";
   document.getElementById("problem-area").innerText = `Here's a little about ${diseaseName}: ${response.data[0].description[0].description}`;
 }
 
@@ -84,14 +87,6 @@ function handleDiseaseForm(event) {
   getDisease(diseaseName);
 }
 
-//window.addEventListener("load", function () {
-  //document.getElementById("diseaseForm").addEventListener("submit", handleDiseaseForm);
-//});
-
-//window.addEventListener("load", function () {
-  //document.getElementById("textForm").addEventListener("submit", handleForm);
-//});
-
 //Form Handling for Image-Generated Plantinfo
 
 function imgGenHandleForm(event) {
@@ -105,16 +100,23 @@ function imgGenHandleForm(event) {
 
 function aboutUsHandleForm(event) {
   event.preventDefault();
-  document.getElementById("about").removeAttribute("class");
+  //document.getElementById('result-area').innerHTML ="";
+  document.getElementById("result-area").innerHTML += `<p>Will Jolley<a href="https://github.com/WillJolley"></a></p>
+  <p>Kari Vigna<a href="https://github.com/KariVigna"><img
+        src="https://avatars.githubusercontent.com/u/134247534?v=4"></a></p>
+  <p>Joseph Murray<a href="https://github.com/asparageist"><img
+        src="https://avatars.githubusercontent.com/u/70991796?v=4"></a></p>
+  <p>Greg Stillwell<a href="https://github.com/GregStillwell"></a><img
+        src="https://avatars.githubusercontent.com/u/126844580?v=4"></p>
+  <p>Mac Granger<a href="https://github.com/Mac-ziis"><img
+        src="https://avatars.githubusercontent.com/u/124395374?v=4"></a></p>`
+  //document.getElementById("about").removeAttribute("class");
 }
-
-//window.addEventListener("load", function () {
-  //document.getElementById("img-gen").addEventListener("submit", imgGenHandleForm);
-//});
 
 //UI for plant-img-service
 
 function plantImgInfo(response) {
+  document.getElementById('result-area').innerHTML ="";
   const container = document.getElementById("result-area");
   container.innerHTML = `This plant might be: ${response.results[0].species.scientificNameWithoutAuthor}
   </br>`;
@@ -144,7 +146,6 @@ window.addEventListener("load", function () {
 // UI logic for seed-catalog
 
 document.addEventListener("DOMContentLoaded", function () {
-
   function calculateTax(cost) {
     const taxRate = 0.18;
     return cost * taxRate;
@@ -207,15 +208,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function getWeather(city) {
   let promise = WeatherService.getWeather(city);
-  promise.then(function(weatherDataArray) {
+  promise.then(function (weatherDataArray) {
     weatherElements(weatherDataArray);
-  }, function(errorArray) {
+  }, function (errorArray) {
     weatherError(errorArray);
   });
 }
 
 function weatherElements(data) {
-  document.getElementById('autoWeather').innerHTML = `Weather: ${Math.round(1.8 *(data[0].main.temp - 273.15) + 32)}\u00B0F </br> ${data[0].main.humidity}% Humidity</br> ${data[0].weather[0].description}
+  document.getElementById('autoWeather').innerHTML = `Weather: ${Math.round(1.8 * (data[0].main.temp - 273.15) + 32)}\u00B0F </br> ${data[0].main.humidity}% Humidity</br> ${data[0].weather[0].description}
   <img src="https://openweathermap.org/img/wn/${data[0].weather[0].icon}@2x.png">`;
 }
 
@@ -228,6 +229,10 @@ function weatherFormSubmission(event) {
   getWeather();
 }
 
-window.addEventListener("load", function() {  
+window.addEventListener("load", function () {
   weatherFormSubmission(event);
 });
+
+function hideAll() {
+  document.getElementById('result-area').innerHTML ="";
+}
