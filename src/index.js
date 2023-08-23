@@ -44,9 +44,13 @@ function getPlantByImage(plantImage) {
 // UI logic for plant-finder
 
 function plantInfo(response, plantName) {
-  document.getElementById('result-area').innerHTML ="";
+  document.getElementById("plant-info").removeAttribute("class", "hidden");
+  document.getElementById("problem-area").setAttribute("class", "hidden");
+  document.getElementById("plant-img").setAttribute("class", "hidden");
+  document.getElementById('order-form').setAttribute("class", "hidden");
+  document.getElementById("about").setAttribute("class", "hidden");
   document.getElementById("img-gen").setAttribute("class", "hidden");
-  const container = document.getElementById("result-area");
+  const container = document.getElementById("plant-info");
   response.data.forEach((entry) => {
     container.innerHTML += `</br>
     Results for "${plantName}":
@@ -65,7 +69,10 @@ function plantInfo(response, plantName) {
 }
 
 function diseaseInfo(response, diseaseName) {
-  document.getElementById('result-area').innerHTML ="";
+  document.getElementById("problem-area").removeAttribute("class", "hidden");
+  document.getElementById("plant-img").setAttribute("class", "hidden");
+  document.getElementById('order-form').setAttribute("class", "hidden");
+  document.getElementById("about").setAttribute("class", "hidden");
   document.getElementById("problem-area").innerText = `Here's a little about ${diseaseName}: ${response.data[0].description[0].description}`;
 }
 
@@ -100,24 +107,22 @@ function imgGenHandleForm(event) {
 
 function aboutUsHandleForm(event) {
   event.preventDefault();
-  //document.getElementById('result-area').innerHTML ="";
-  document.getElementById("result-area").innerHTML += `<p>Will Jolley<a href="https://github.com/WillJolley"></a></p>
-  <p>Kari Vigna<a href="https://github.com/KariVigna"><img
-        src="https://avatars.githubusercontent.com/u/134247534?v=4"></a></p>
-  <p>Joseph Murray<a href="https://github.com/asparageist"><img
-        src="https://avatars.githubusercontent.com/u/70991796?v=4"></a></p>
-  <p>Greg Stillwell<a href="https://github.com/GregStillwell"></a><img
-        src="https://avatars.githubusercontent.com/u/126844580?v=4"></p>
-  <p>Mac Granger<a href="https://github.com/Mac-ziis"><img
-        src="https://avatars.githubusercontent.com/u/124395374?v=4"></a></p>`
-  //document.getElementById("about").removeAttribute("class");
+  document.getElementById("plant-info").setAttribute("class", "hidden");
+  document.getElementById("plant-img").setAttribute("class", "hidden");
+  document.getElementById("order-form").setAttribute("class", "hidden");
+  document.getElementById("about").removeAttribute("class");
 }
 
 //UI for plant-img-service
 
 function plantImgInfo(response) {
-  document.getElementById('result-area').innerHTML ="";
-  const container = document.getElementById("result-area");
+  document.getElementById("plant-img").removeAttribute("class", "hidden");
+  document.getElementById("problem-area").setAttribute("class", "hidden");
+  document.getElementById("about").setAttribute("class", "hidden");
+  document.getElementById('order-form').setAttribute("class", "hidden");
+  document.getElementById("plant-info").setAttribute("class", "hidden");
+  //document.getElementById('result-area').innerHTML = null;
+  const container = document.getElementById("plant-img");
   container.innerHTML = `This plant might be: ${response.results[0].species.scientificNameWithoutAuthor}
   </br>`;
   response.results[0].images.forEach((image) => {
@@ -199,8 +204,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const shoppingButton = document.getElementById('shopping-btn');
   shoppingButton.addEventListener('click', () => {
+    document.getElementById("about").setAttribute("class", "hidden");
+    document.getElementById("plant-info").setAttribute("class", "hidden");
+     document.getElementById("plant-img").setAttribute("class", "hidden");
     const orderForm = document.getElementById('order-form');
     orderForm.classList.remove('hidden');
+    //document.getElementById("problem-area").setAttribute("class", "hidden");
   });
 });
 
@@ -232,7 +241,3 @@ function weatherFormSubmission(event) {
 window.addEventListener("load", function () {
   weatherFormSubmission(event);
 });
-
-function hideAll() {
-  document.getElementById('result-area').innerHTML ="";
-}
