@@ -73,6 +73,7 @@ function diseaseInfo(response, diseaseName) {
   document.getElementById("plant-img").setAttribute("class", "hidden");
   document.getElementById('order-form').setAttribute("class", "hidden");
   document.getElementById("about").setAttribute("class", "hidden");
+  document.getElementById("plant-info").setAttribute("class", "hidden")
   document.getElementById("problem-area").innerText = `Here's a little about ${diseaseName}: ${response.data[0].description[0].description}`;
 }
 
