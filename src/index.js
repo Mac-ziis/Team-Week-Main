@@ -82,6 +82,11 @@ function diseaseInfo(response, diseaseName) {
 }
 
 function printError(error) {
+  document.getElementById("plant-img").setAttribute("class", "hidden");
+  document.getElementById('order-form').setAttribute("class", "hidden");
+  document.getElementById("about").setAttribute("class", "hidden");
+  document.getElementById("plant-info").setAttribute("class", "hidden");
+  document.getElementById("problem-area").setAttribute("class", "hidden");
   document.getElementById("error-area").removeAttribute("class");
   document.getElementById("error-area").innerText = `There was an error accessing data: ${error}`;
 }
