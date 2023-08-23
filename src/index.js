@@ -73,7 +73,7 @@ function diseaseInfo(response, diseaseName) {
   document.getElementById("plant-img").setAttribute("class", "hidden");
   document.getElementById('order-form').setAttribute("class", "hidden");
   document.getElementById("about").setAttribute("class", "hidden");
-  document.getElementById("plant-info").setAttribute("class", "hidden")
+  document.getElementById("plant-info").setAttribute("class", "hidden");
   document.getElementById("problem-area").innerText = `Here's a little about ${diseaseName}: ${response.data[0].description[0].description}`;
 }
 
@@ -108,6 +108,7 @@ function imgGenHandleForm(event) {
 
 function aboutUsHandleForm(event) {
   event.preventDefault();
+  document.getElementById("problem-area").setAttribute("class", "hidden");
   document.getElementById("plant-info").setAttribute("class", "hidden");
   document.getElementById("plant-img").setAttribute("class", "hidden");
   document.getElementById("order-form").setAttribute("class", "hidden");
@@ -122,7 +123,6 @@ function plantImgInfo(response) {
   document.getElementById("about").setAttribute("class", "hidden");
   document.getElementById('order-form').setAttribute("class", "hidden");
   document.getElementById("plant-info").setAttribute("class", "hidden");
-  //document.getElementById('result-area').innerHTML = null;
   const container = document.getElementById("plant-img");
   container.innerHTML = `This plant might be: ${response.results[0].species.scientificNameWithoutAuthor}
   </br>`;
@@ -207,10 +207,10 @@ document.addEventListener("DOMContentLoaded", function () {
   shoppingButton.addEventListener('click', () => {
     document.getElementById("about").setAttribute("class", "hidden");
     document.getElementById("plant-info").setAttribute("class", "hidden");
-     document.getElementById("plant-img").setAttribute("class", "hidden");
+    document.getElementById("plant-img").setAttribute("class", "hidden");
+    document.getElementById("problem-area").setAttribute("class", "hidden");
     const orderForm = document.getElementById('order-form');
     orderForm.classList.remove('hidden');
-    //document.getElementById("problem-area").setAttribute("class", "hidden");
   });
 });
 

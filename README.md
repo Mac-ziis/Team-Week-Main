@@ -1,8 +1,8 @@
-# _Title_
+# _Plant Freak_
 
 #### By _**Joseph Murray, Kari Vigna, Mac Granger, Greg Stillwell, Will Jolley**_
 
-#### _{Brief description of application}_
+#### _This application provides information on various plants and diseases, has an order form to purchase seeds and starts, and identifies plants by image._
 
 ## Technologies Used
 
@@ -16,10 +16,12 @@
 * _ESLint_
 * _JSON_ 
 * _DotEnv_
+* _Github_
+* _Visual Studio Code_
 
 ## Description
 
-_{This is a detailed description of your application. Give as much detail as needed to explain what the application does as well as any other information you want users or other developers to have.}_
+_This Application "Plant Freak" is a plant recognition application that uses multiple API calls to identify plants by: common name, scientific name, and image URL. Additionally you can identify and research common plant diseases and receive information back about what afflicts your leafy friends! Included in the application is a current forecast for planting conditions and a seed catalog for all of your seed purchasing needs. Found at the bottom of the page tree you will find some information about the authors of the page and links to our separate Github profiles. Happy growing!_
 
 ## Setup/Installation Requirements
 
@@ -40,7 +42,9 @@ _{This is a detailed description of your application. Give as much detail as nee
   * https://my.plantnet.org/
     * For this key to work on a live server, you'll have to click "expose my API key" at https://my.plantnet.org/account/settings, and list your server domain in the "Authorized domains" box (e.g. http://localhost:8080)
 * Insert your API keys in the .env file using the following syntax: 
-* API_Key=(Your Key Here) - without the parentheses. 
+  * API_Key_1=(Your https://perenual.com/login Key Here) - without the parentheses. 
+  * API_Key_2=(Your https://openweathermap.org/ Key Here) - without the parentheses. 
+  * API_Key_3=(Your https://my.plantnet.org/ Key Here) - without the parentheses.
 * From the root directory, run the following commands in your terminal:
   * to install dependencies: npm install
   * to run the application: npm run build
@@ -48,8 +52,7 @@ _{This is a detailed description of your application. Give as much detail as nee
 
 ## Known Bugs
 
-* _Any known issues_
-* _should go here_
+* _No known bugs._
 
 ## License
 
