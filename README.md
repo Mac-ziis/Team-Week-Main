@@ -38,6 +38,7 @@ _This Application "Plant Freak" is a plant recognition application that uses mul
     * Make sure to add a comma at the end of the previous plugin.
 * Generate API keys by creating accounts at:
   * https://perenual.com/login
+    * After creating account, navigate to the API Docs page, click "GET API KEY & ACCESS", then click the "Generate New Key" button.
   * https://openweathermap.org/
   * https://my.plantnet.org/
     * For this key to work on a live server, you'll have to click "expose my API key" at https://my.plantnet.org/account/settings, and list your server domain in the "Authorized domains" box (e.g. http://localhost:8080)
@@ -52,7 +53,7 @@ _This Application "Plant Freak" is a plant recognition application that uses mul
 
 ## Known Bugs
 
-* _No known bugs._
+* _To access some of their plant info Perenual requires a subscription, so results for certain plants may not show up_
 
 ## License
 

@@ -45,11 +45,13 @@ function getPlantByImage(plantImage) {
 
 function plantInfo(response, plantName) {
   document.getElementById("plant-info").removeAttribute("class", "hidden");
+  document.getElementById("error-area").setAttribute("class", "hidden");
   document.getElementById("problem-area").setAttribute("class", "hidden");
   document.getElementById("plant-img").setAttribute("class", "hidden");
   document.getElementById('order-form').setAttribute("class", "hidden");
   document.getElementById("about").setAttribute("class", "hidden");
   document.getElementById("img-gen").setAttribute("class", "hidden");
+  document.getElementById("receipt").setAttribute("class", "hidden");
   const container = document.getElementById("plant-info");
   response.data.forEach((entry) => {
     container.innerHTML += `</br>
@@ -70,15 +72,18 @@ function plantInfo(response, plantName) {
 
 function diseaseInfo(response, diseaseName) {
   document.getElementById("problem-area").removeAttribute("class", "hidden");
+  document.getElementById("error-area").setAttribute("class", "hidden");
   document.getElementById("plant-img").setAttribute("class", "hidden");
   document.getElementById('order-form').setAttribute("class", "hidden");
   document.getElementById("about").setAttribute("class", "hidden");
   document.getElementById("plant-info").setAttribute("class", "hidden");
+  document.getElementById("receipt").setAttribute("class", "hidden");
   document.getElementById("problem-area").innerText = `Here's a little about ${diseaseName}: ${response.data[0].description[0].description}`;
 }
 
 function printError(error) {
-  document.getElementById("result-area").innerText = `There was an error accessing data: ${error}`;
+  document.getElementById("error-area").removeAttribute("class");
+  document.getElementById("error-area").innerText = `There was an error accessing data: ${error}`;
 }
 
 function handleForm(event) {
@@ -108,26 +113,30 @@ function imgGenHandleForm(event) {
 
 function aboutUsHandleForm(event) {
   event.preventDefault();
+  document.getElementById("error-area").setAttribute("class", "hidden");
   document.getElementById("problem-area").setAttribute("class", "hidden");
   document.getElementById("plant-info").setAttribute("class", "hidden");
   document.getElementById("plant-img").setAttribute("class", "hidden");
   document.getElementById("order-form").setAttribute("class", "hidden");
   document.getElementById("about").removeAttribute("class");
+  document.getElementById("receipt").setAttribute("class", "hidden");
 }
 
 //UI for plant-img-service
 
 function plantImgInfo(response) {
   document.getElementById("plant-img").removeAttribute("class", "hidden");
+  document.getElementById("error-area").setAttribute("class", "hidden");
   document.getElementById("problem-area").setAttribute("class", "hidden");
   document.getElementById("about").setAttribute("class", "hidden");
   document.getElementById('order-form').setAttribute("class", "hidden");
   document.getElementById("plant-info").setAttribute("class", "hidden");
+  document.getElementById("receipt").setAttribute("class", "hidden");
   const container = document.getElementById("plant-img");
   container.innerHTML = `This plant might be: ${response.results[0].species.scientificNameWithoutAuthor}
   </br>`;
   response.results[0].images.forEach((image) => {
-    container.innerHTML += `<img src="${image.url.s}">`
+    container.innerHTML += `<img src="${image.url.s}">`;
   });
   document.getElementById("img-gen-plant-name").innerText += ` ${response.results[0].species.scientificNameWithoutAuthor}`;
   document.getElementById("img-gen").removeAttribute("class");
@@ -147,6 +156,7 @@ window.addEventListener("load", function () {
   document.getElementById("img-gen").addEventListener("submit", imgGenHandleForm);
   document.getElementById("diseaseForm").addEventListener("submit", handleDiseaseForm);
   document.getElementById("about-us").addEventListener("submit", aboutUsHandleForm);
+  document.getElementById("receipt").addEventListener("submit", aboutUsHandleForm);
 });
 
 // UI logic for seed-catalog
@@ -205,10 +215,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const shoppingButton = document.getElementById('shopping-btn');
   shoppingButton.addEventListener('click', () => {
+    document.getElementById("error-area").setAttribute("class", "hidden");
     document.getElementById("about").setAttribute("class", "hidden");
     document.getElementById("plant-info").setAttribute("class", "hidden");
     document.getElementById("plant-img").setAttribute("class", "hidden");
     document.getElementById("problem-area").setAttribute("class", "hidden");
+    document.getElementById("receipt").setAttribute("class", "hidden");
     const orderForm = document.getElementById('order-form');
     orderForm.classList.remove('hidden');
   });
